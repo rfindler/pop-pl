@@ -1,0 +1,82 @@
+* What are the major goals of the project?
+
+To design a programming language and adapt software engineering
+techniques to implement and maintain highly reliable electronic
+prescriptions. To test this programming language by building a program
+to management of the high blood sugar levels that sometimes occur in
+pregnant women (Gestational Diabetes Mellitus (GDM)).
+
+Major Activities:
+
+Originally this project was a two year project, with the plan of
+spending our energy right away on building the programming language
+and the GDM proscription and this intention is reflected in the
+proposal document. During the time between when we submitted the
+proposal and when we received the good news that it would be funded we
+had optimistically attempted to lay groundwork to prepare for such
+good news, but had quickly learned that we needed more time to bridge
+the ``cultural chasm'' (discussed briefly in the proposal itself).
+
+In consultation with John Reppy, we revised the proposal from a 2 year
+one to a 3 year one with the plan for the first year to be spent
+getting the computer science researchers acquainted with the medical
+system (and to a lesser extent, vice versa). This year turned out to
+be especially important because the computer science researchers
+needed to take a Hep-B vaccine before being able to enter the GDM
+clinic, and that vaccine takes 7 months to take effect.
+
+While getting vaccinated, we spent the the bulk of our time on two
+activitities: studying the medical literature to gain basic background
+information and to try to find and understand other algorithmic
+approaches to medicine and writing an essay that explains our approach
+and why it is different. (This essay is nearing completion but is not
+quite ready yet.)
+
+Since getting vaccinated, we have also been spending several hours a
+week observing in the GDM clinic and are now fairly familiar with
+routine procedures of the clinic and are beginning to inject algorithm
+thinking into their routine. We have not yet made any changes to the
+medical practice in the clinic, however; we are so far focusing on
+writing down their existing practices as algorithms to try to uncover
+the underlying programming language.
+
+
+These clinic visits consist of direct observation of clinical
+encounters between pregnant women with GDM and clinicians (physicians
+and advanced practice nurse). We also discuss with clinical staff our
+observations and the challenges of helping these patients with their
+GDM. 
+
+Overall, these observations and discussions have been enlightening and
+helpful. We remain optimistic about the original goals of the proposal
+and excited to dig more deeply into it, in the coming year.
+
+Specific Objectives:
+
+
+
+Significant results:
+
+
+Key outcomes or Other achievements:
+
+
+
+* What opportunities for training and professional development has the project provided?
+
+Burke Fetscher and Robby Findler have learned a considerable amount
+about the day-to-day function of the GDM clinic and hospitals in
+general. Steve Belknap and Charlotte Niznik have learned about
+computation and algorithmic expression.
+
+The team is developing a common understanding about how to approach
+the problem and develop a means of expressing clinical activities and
+goals in algorithmic form.
+
+* How have the results been disseminated to communities of interest?
+
+We plan to submit that essay to Nature in the coming weeks or months.
+
+* What do you plan to do during the next reporting period to accomplish the goals?
+
+We plan to follow the steps outlined in the propsal.

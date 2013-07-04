@@ -1,0 +1,45 @@
+
+\section{Project Timeline}
+
+\begin{figure}
+\newcommand{\MA}{*} % main development activity
+\newcommand{\RF}{+} % ongoing refinement
+\newcommand{\MT}{\ensuremath{\cdot}} % maintenance
+
+\begin{center}
+\begin{scriptsize}
+\begin{tabular}{|p{1.3in}|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
+ & Q3   & Q4   & Q1   & Q2   & Q3   & Q4   & Q1   & Q2   & Q3   & Q4   & Q1   & Q2   \\
+ & 2011 & 2011 & 2012 & 2012 & 2012 & 2012 & 2013 & 2013 & 2013 & 2013 & 2014 & 2014 \\ \hline
+\raggedright{}research best practices (\ref{sec:best-practices})
+ & \MA  &      &      &      &      &      &      &      &      &      &      &      \\ \hline
+\raggedright{}develop the POP-GDM prescription (\ref{sec:popgdm}) 
+ & \MA  & \MA  & \RF  &  \RF & \RF  & \MT  & \MT  & \MT  & \MT  & \MT  & \MT  & \MT  \\ \hline
+\raggedright{}design and implement event-based language (\ref{sec:event})
+ &      & \MA  & \MA  & \RF  & \RF  & \MT  & \MT  & \MT  & \MT  & \MT  & \MT  & \MT  \\ \hline
+\raggedright{}POP-GDM in \poppl{} (\ref{sec:popgdm})
+ &      &      & \MA  & \MA  & \RF  & \RF  & \MT  & \MT  & \MT  & \MT  & \MT  & \MT  \\ \hline
+\raggedright{}build run-time system for new devices (\ref{sec:vm})
+ &      &      &      & \MA  & \MA  & \RF  & \RF  & \MT  & \MT  & \MT  & \MT  & \MT  \\ \hline
+\raggedright{}POP-GDM with real patients (\ref{sec:popgdm})
+ &      &       &      &      & \MA  & \MA  & \RF  & \RF  & \MT  & \MT  & \MT  & \MT \\ \hline
+\raggedright{}staged compilation of language (\ref{sec:staged-programming})
+ &      &      &      &      &      & \MA  & \RF  & \MT  & \MT  &      &      &      \\ \hline
+\raggedright{}new tools for debugging and refinement (\ref{sec:iterative})
+ &      &      &      &      &      &      &      & \MA  & \MA  & \RF  & \RF  & \RF  \\ \hline
+\raggedright{}statistical modeling (\ref{sec:stat})
+ &      &  \MT & \MT  & \MT &  \MA & \MA   & \MA  & \MA  & \MA  & \MA  & \MA  & \MA  \\ \hline
+\multicolumn{13}{c}{\textbf{Key} \hbox to .2in{} \MA~main, initial activity \hbox to .5in{} \RF~ongoing refinement  \hbox to .5in{} \MT~maintenance}
+\end{tabular}
+\end{scriptsize}
+\end{center}
+\vspace*{-10pt}
+\caption{Project Timeline}\label{fig:timeline}
+\vspace*{-10pt}
+\end{figure}
+
+The implementation of POP-GDM must procede in parallel with the
+development of the language that will be used to implement
+it. Althought the static timeline does not reflect this interdepency,
+we expect that implementing POP-GDM will help inform the language,
+while language improvements will help refine the implementation. 

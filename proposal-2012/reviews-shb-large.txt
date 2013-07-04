@@ -1,0 +1,298 @@
+Proposal Number: 1111931
+
+Panel Summary: 
+Panel Summary 
+
+I. Brief Description of Project: 
+
+
+This proposal aims at providing software engineering approaches to improve the performance of an electronic prescription. The plan is to design and implement a patient-oriented prescription programming language (POP-PL) with associated infrastructure and tools. POP-PL would be used to create an e-prescription to be imitated early in pregnancy in patients at risk for gestational diabetes mellitus. The claim is that this approach will improve the management of hypertension in pregnant women, which is the focus test case in the proposal. A novel insight is to think of prescriptions as programs (since they have a combination of interventions). The work would develop a high level-language to describe treatment regimens and create tools to analyze if there are problems with the regimes. The approach would involve statistical modeling and create devices to ensure security. 
+
+II. Intellectual Merit: 
+Strengths: 
+
+The project, once successful, has the potential to improve the well-being of disadvantaged populations. The PIs have good track records. Also, prior work on SW-webs is also encouraging. 
+
+The project, if successful, would impact clinicians by helping them to manage their patients by detecting conflicting medications. It would also benefit researchers who could study prescription information and clinical outcomes to discover new knowledge about appropriate practice. 
+
+The idea of programming language for prescriptions is novel, and it could be useful by enable analysis and monitoring them in electronic medical record (EMR) systems. 
+
+Weaknesses: 
+
+The proposal would create a new language for authoring prescriptions. The panel was not convinced that this would be broadly adopted by EMR systems, and the lack of discussion in the proposal of how this would relate to existing standards for data representation and interchange in EMR systems underscores this concern. Thus, the longer-term impact of the work is questionable. 
+
+Another concern of the panel is that the approach will provide insufficient feedback to physicians. The justification for decision support system outputs should not be hidden; physicians will not likely accept recommendations from such systems unless they explain the basis upon which the recommendations are made. 
+
+There is no discussion of educational aspects, and how the work would drive and interact with the educational programs of the investigator and institution. There is no education plan. 
+
+
+III. Broader Impacts: 
+
+Strengths: 
+
+The proposed research can benefit the education missions of the PIs? institute. Dissemination of the outcomes is possible through their industry connection. The knowledge acquired from the project could be used to improve commercial IVR system. 
+
+The proposed methods and tools could have broader aspects throughout medicine since it would provide methodology that could improve analysis of prescriptions, which are widely used throughout medicine.
+
+The results could potentially be integrated into EMR systems, and could have substantial impact on how doctors practice, by detecting problems in prescriptions, provided the methodology is adopted by EMR vendors. 
+
+Weaknesses: 
+
+The panel found the discussion of the broader impact lacking. The mode of operation was not sufficiently described, and it was not clear whether the methodology would be taken up by EMR vendors or embraced by physicians in practice. These factors weaken the potential for broader impact. 
+
+
+IV. SHB Program Criteria: 
+
+How did the proposal address the additional SHB review criteria? 
+
+1. Is the proposal motivated by specific challenges in health and wellbeing? 
+
+Yes, as the work focuses on improving prescriptions. 
+
+2. Comment on the extent to which individuals at underserved institutions may benefit from the proposal. 
+
+While there is no explicit discussion of underserved populations, the project, if successful, would improve the well-being of all patients, including disadvantaged populations. 
+
+3. Does the proposal aim to facilitate large-scale discoveries that yield long-term, transformative impact in how we treat illness and maintain our health? 
+
+Yes, through improving prescription ordering. 
+
+4. Is the collaboration plan, including timeline, costs and personnel, innovative, realistic and convincing? Does the collaboration plan provide thoughtful coordination mechanisms that regularly bring together the various participants of the project? 
+
+The team is well described, but the details of how they will collaborate in achieving the aims is lacking. 
+
+V. Panel Recommendation and Justification, including key strengths and critical weaknesses 
+
+Not Recommended for Funding by Panel due to insufficient intellectual merit for funding. 
+
+
+The summary was read by the panel, and the panel concurred that the summary accurately reflects the panel discussion.
+
+
+Panel Recommendation: Not Recommended for Funding
+
+
+
+
+============================================================
+
+
+Review #1
+
+
+
+Proposal Number:
+
+ 
+
+1111931
+
+NSF Program:
+
+ 
+
+Smart Health & Wellbeing
+
+Principal Investigator:
+
+ 
+
+Findler, Robert
+
+Proposal Title:
+
+ 
+
+SHB: Large:Collaborative Research: Development and Testing of a Patient-Oriented Prescription: An Executable Specification for a Medical Algorithm for Gestational Diabetes Mellitus
+
+Rating:
+
+ 
+
+Good
+
+
+
+
+REVIEW:
+
+What is the intellectual merit of the proposed activity? 
+
+The intellectual merit of the project is good. The proposal aim is to investigate the reliability of prescription in medicine. The project identifies in the beginning the unscientific features of the medical prescriptions. The authors of the project identify the motives for prescribing treatment that have complex character conditioned on individual physician education, experience and expectations for patient reaction. They rightly claim that neglect of scientific evidence is quite common in these situations and argue that this factor may have considerable impact on treatment results. This realization prompts investigators to examine the methodology of algorithmic approach to prescribing in medicine that will take objectively into account all factors that should be considered during prescription and weight properly their importance and priority to design objectively optimal prescription. I generally agree with this premise and see the research in this direction as contribution to improving medical intervention. However, I have also reservations regarding the properties of the interaction between physicians and software designing the prescription. These features are not clearly explained in the proposal and I see them as important for the proposal success in application and clinical practicality. 
+
+
+
+What are the broader impacts of the proposed activity? 
+
+The prescription derived from solutions achieved under this proposal should be presented to the physician in the form of a suggestion (the physician is still responsible for the patient and may have some specific information that may not have been considered by the program).Moreover, the prescription justification should be revealed tothe physician. The explanation of why the program came to the given conclusion for prescription and on what specific information this conclusion is based should be clearly explained . This will give physician the clarification of the data and reasoning process by which the prescription was arrived at and will allow him/her to make judgment if all circumstances were taken into account in any given case and make him/her willing to follow with the algorithm derived suggestion or change it according to additional factors that he/she may want to take into account. Moreover, this type of interaction between the system and physician will make possible for the phycisian to actively participate in the iterative improvement of the prescription deriving algorithm. 
+
+
+
+Summary Statement 
+
+The project is good though modifications on the interaction between the system and physician prescribing the treatment has to be modified to make the project acceptable for medical community and clinically feasible.
+
+
+============================================================
+
+
+Review #2
+
+
+
+Proposal Number:
+
+ 
+
+1111931
+
+NSF Program:
+
+ 
+
+Smart Health & Wellbeing
+
+Principal Investigator:
+
+ 
+
+Findler, Robert
+
+Proposal Title:
+
+ 
+
+SHB: Large:Collaborative Research: Development and Testing of a Patient-Oriented Prescription: An Executable Specification for a Medical Algorithm for Gestational Diabetes Mellitus
+
+Rating:
+
+ 
+
+Very Good
+
+
+
+
+REVIEW:
+
+What is the intellectual merit of the proposed activity? 
+
+The proposal concerns the creation of electronic prescriptions, where the former are conceived as a detailed set of conditional instructions for the care of patients with particular conditions. They have previous expertise in re-designing paper prescription processes, and propose to now extend this to electronic prescriptions with the goals of reduced errors and improved patient compliance and follow-up. They will begin with a particular medical condition to prototype their system. 
+Section 2.1 presents a very strong analysis of the baseline system (algorithm-based paper prescription), and provides the key insight that their approach envisages a human-computer collaboration rather than automation as the objective. 
+Section 3 presents a series of crisp research questions that advance both the objective for the particular medical condition and which have CS generality. 3.2 includes a powerful insight into how physicians currently create prescriptions and how CS techniques can be useful in supplementing what they do. The proposal considers all aspects of the design including proper statistical evaluation. 
+
+
+What are the broader impacts of the proposed activity? 
+
+Electronic prescriptions are broadly speaking a regimen for patient care, with specifications for points where decisions need to be taken based on events. As such, a good system could have a large impact on medicine. The language to be developed to aid in creating these prescriptions could apply to a broad range of medical procedures. 
+
+Educational Broader Impacts 
+None listed; this needs to be fixed before an award is made. 
+
+Management 
+The management plan is well-conceived. 
+
+
+Summary Statement 
+
+This is a very engaging and clear proposal on a topic in which the investigators have deeply thought through all aspects of the proposed research. I learned a lot from it. The research could have broad impact on the practice of medicine and open a new partnership with CS. It would have been rated higher if there had been an education plan.
+
+
+============================================================
+
+
+Review #3
+
+
+
+Proposal Number:
+
+ 
+
+1111931
+
+NSF Program:
+
+ 
+
+Smart Health & Wellbeing
+
+Principal Investigator:
+
+ 
+
+Findler, Robert
+
+Proposal Title:
+
+ 
+
+SHB: Large:Collaborative Research: Development and Testing of a Patient-Oriented Prescription: An Executable Specification for a Medical Algorithm for Gestational Diabetes Mellitus
+
+Rating:
+
+ 
+
+Fair
+
+
+
+
+REVIEW:
+
+What is the intellectual merit of the proposed activity? 
+
+Long-term goal: a platform that clinicians can use to provide reliable, safe, 
+effective, and evidence-based healthcare. 
+
+Plan: design and build the Patient-Oriented Prescription Programming Language 
+(POP-PL) and supporting infrastructure, and evaluate if this new platform can be 
+used to improve management of the high blood sugar levels that sometimes occur 
+in pregnant women (GDM). 
+
+Thinking of prescriptions as pograms can improve safety. 
+
+New kinds of analyses of programs, 
+New general methods for developing high-reliability software 
+that facilitates collaboration between machines and humans. 
+
+Low level language for medical devices to ensure security. 
+
+A statistical model of GDM 
+
+
+What are the broader impacts of the proposed activity? 
+
+
+No discussion of Educational aspects. 
+
+A tool for management of GDM in general obstetric practice in the US. 
+
+For clinicians: A public-domain, open-source framework for designing, creating, 
+debugging, and managing a broad array of prescriptions for other medical 
+problems; 
+
+For researchers: tools for acquiring data about the effect of healthcare 
+interventions; 
+
+There is potential for incorporation into commercial EHR software via a 
+collaboration with Walgreens. 
+
+
+
+Summary Statement 
+
+There are several components (language design, security, predictive models 
+of GDM) that seem somewhat independent. Some is specific to GDM, 
+some seems somewhat general. 
+
+Preliminary work found sound prescription design followed by iterative cycles of 
+hazard identification and debugging reduces the rate of severe patient injury 
+
+Evaluate using a six-member panel of willing clinicians with expertise in 
+managing GDM to evaluate GDM program in simulted trial. 
+
+Using existing data sets will build a statistical predictive model of 
+GDM. 
+
+The project is interesting but the impact and education are weak

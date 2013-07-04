@@ -1,0 +1,182 @@
+\subsection{Establish Whether or Not POP-GDM Improves Simulated  Clinical Decision-making.}\label{sec:popgdm}
+We will write \& debug POP-GDM---a \poppl{} program that manages a
+patient's drug therapy, diet, exercise, health behaviors, \& other
+aspects of GDM. We will conduct simulation trials to compare POP-GDM
+to usual care. We hypothesize that POP-GDM will outperform usual care
+in timeliness, appropriateness, \& reliability of clinical decisions.
+
+The objective of this aim is to do requisite design \& debugging of
+POP-GDM in a simulation environment so as to achieve this goal of
+safety and usability prior to deployment in a clinical setting. Our
+working hypothesis is that POP-GDM will outperform usual care in
+timeliness, appropriateness, \& reliability of clinical decisions. We
+will test this hypothesis among experienced clinicians with clinical
+scenarios in Northwestern's state-of-the-art clinical simulation
+facility. As in our prior work applying software design principles \&
+debugging methods to paper-based prescriptions, we will test \& refine
+POP-GDM over several development cycles until
+reaching a safe, debugged version. We will then compare the timeliness, appropriateness, and
+reliability of clinical decisions made using POP-GDM with decisions
+made with usual care. Upon completion of these initial development
+cycles, we will have a version of POP-GDM suitable for testing in
+patients. Additional simulation testing will be done in parallel with
+testing in real patients during later cycles of development of
+POP-GDM.
+
+\paragraph{Justification \& Feasibility}
+The physician investigators for this project have in aggregate more
+than seventy years of clinical experience in academic medicine. We
+have done extensive patient safety work in our own institution and
+nationally. Also, our previous work developing a patient-oriented
+prescription for analgesia was focused heavily on patient safety; we
+will again emphasize safety in this project. Prior to initiation of
+this project we expect to acquire an extensive library of pre-printed
+order sheets, protocols, institutional policies, \& also to identify
+relevant clinical practice guidelines for management of GDM. Combined
+with our own clinical experience, these resources will be used to
+generate the content of POP-GDM. A particular strength of this
+application is access to the unique, separately funded, brand-new
+Simulation and Immersive Learning Facility at Northwestern University
+providing simulation environments including physical plant, electronic
+devices, and computers of (1) a 5-bed ICU, (2) an ambulatory clinic,
+and (3) a work area for interacting by phone, text-messaging or email
+with patients at home. We will use this facility to conduct our
+simulation trials of POP-GDM. 
+Given previous similar studies, we are confident of a ready
+pool of clinician–volunteers sufficient to conduct these simulations, even
+allowing for ``Lasagna's law'' \citep{Wouden2007}.
+
+\paragraph{Research Design}
+The approach we will use to accomplish this aim is similar to the one
+we previously used for developing \& testing patient-oriented
+prescriptions~\citep{Belknap2008, GraumlichBelknap2000} \& that others
+used to develop checklists for surgery~\citep{HaynesGawande2009} \&
+prevention of catheter-associated bloodstream infection~\citep{Pronovost2006}.
+
+\paragraph{Creation of POP-GDM}
+We will use a six-member panel~\citep{Libby2010} of willing clinicians with
+expertise in managing GDM. We will query for \& distribute relevant
+materials suggested by the panel \& also provide to them our library
+of pre-printed order sheets, protocols, and clinical guidelines. We
+will then use a modified email-based Delphi method in successive
+rounds to achieve consensus as to the clinical tasks \& activities
+that will constitute POP-GDM. These will be described in plain English
+\& in the pseudocode that clinicians naturally use to describe their
+prescriptions. For example, a guideline on diagnosis of GDM coauthored
+by one of us~\citep{Metzger2010} contains the remarkable, quite
+algorithmic, pseudocode shown in figure~\ref{fig:gdm-alg}.
+
+\beginwfig{5.0in}
+\vspace*{-.3in}
+\begin{boxedminipage}{5.0in}
+\vspace*{-.2in}
+\parbox{5.0in}{\small
+\begin{tabbing}
+\textbf{First prenatal visit:}\\
+Mea\=sure FPG, A1C, or random plasma glucose on all or only high-risk women. \\
+  \> If \= results indicate overt diabetes as per Table 1\\
+  \> \> Treatment and follow-up as for preexisting diabetes\\
+  \> If results not diagnostic of overt diabetes\\
+  \> \> and \= fasting plasma glucose $\geq$ 5.1 mmol/l(92 mg/dl) but $<$ 7.0 mmol/l(126 mg/dl), \\
+  \> \> \> diagnose as GDM.\\
+  \> \> and fasting plasma glucose $<$ 5.1 mmol/l (92 mg/dl),\\
+  \>  \> \> test for GDM from 24--28 weeks gestation with 75-g OGTT
+\end{tabbing}}\vspace*{-.3in}
+\caption{GDM Guideline~\cite{Metzger2010}, written as an algorithm}\label{fig:gdm-alg}
+\end{boxedminipage}
+\vspace*{-.2in}
+\endwfig
+
+We will translate into \poppl{} the expert panel's consensus
+recommendations on GDM functionality \& debug this code in our
+simulation laboratory. POP-GDM will include redundancies to handle
+problems such as malfunctioning tech, lost messages, \& flawed or
+delayed task execution. As part of this evaluation of POP-GDM, we will
+evaluate the dietary assessment tools (smartphone-based and web-based)
+that we will use to monitor diet, the accelerometers we will use to
+measure physical activity, \& the glucometers we will use (when
+indicated) to monitor patient glucose. We will evaluate suitability of
+various glucometers \& accelerometers for this project and
+exhaustively test, debug, \& optimize information transfer among
+devices, patients, \& clinicians.
+
+A growing body of research indicates that most patients have
+difficulty adhering to dietary and physical activity
+recommendations. Traditional paper methods for monitoring physical
+activity \& diet are prone to retrospective bias, and overestimate
+behavior adherence~\citep{Stone2002}. Paper records also fail to yield
+timely feedback to support effective behavioral self-regulation. As
+part of ongoing research by members of this team, we have developed a
+customized smartphone-based decision support tool that facilitates
+collection of objectively measured physical activity and dietary
+intake data and informs decisions to improve physical activity and
+diet choice. This tool is a smartphone platform that provides
+real-time, objective feedback on progress toward physical activity and
+diet goals, and informed, interactive support from
+clinicians. Hardware consists of a smartphone, and a three-axis
+accelerometer with Bluetooth capabilities. The interface design
+includes touch screen tabs for individuals to review daily diet intake
+and physical activity. A patient enters dietary intake into their
+smartphone, which is pre-programmed with the Calorie
+King\textregistered{} food database to provide a breakdown of
+macro-nutrient and micro-nutrient consumption. Physical activity is
+captured via the accelerometer. Thus, both physical activity and diet
+are captured in near-real time. The smartphone will automatically and
+wirelessly send and receive data with no further action required on
+the part of the participant. This customized software and technical
+platform is currently being used in two randomized controlled trials
+in an obese population with support from a grant awarded by the
+National Institutes of Health to one of us~\citep{Spring2009} We will
+capture data from glucometers upon patient visits to the
+Maternal-Fetal Medicine clinic. We will also include assessments of
+mood (depression, anxiety, anger), use of cigarettes \& ethanol, and
+other relevant health behaviors such as sleep schedule into the
+POP-GDM smartphone portal \& web-based portal.
+
+\paragraph{Simulation Trials of POP-GDM vs. Usual care} Using an
+approach similar to our prior published work referenced above, we will
+compare the performance of POP-GDM and usual care. We will assess
+timeliness as the time duration between reception by the clinician of
+a message from a device, a patient, or another clinicians and complete
+transmission of a response by the clinician to the patient. We will
+assess appropriateness according to concordance between the simulated
+action initiated by the clinician in response to the message and what
+is called for by the consensus recommendations of our expert panel. We
+will assess reliability according to the degree of variation in
+response time and consistency of simulated action initiated by the
+clinician in response to the message. One of us is the director of the
+Northwestern Simulation and Immersive Learning facility and will
+provide assistance and oversight with these simulation trials.
+
+\paragraph{Expected Outcomes} We expect to build an integrated
+platform for management of GDM. We envision POP-GDM as a ``clinician
+amplifier'' that will assure orders of nurse practitioners \&
+physicians are effectively performed by patients \& staff, that
+physical activity, diet, \& health behaviors are effectively
+monitored, \& that missing tasks are detected \& remediated. We
+anticipate POP-GDM content will be unsurprising to clinicians and
+similar to the protocol used by us in an RCT of treatment of mild
+GDM. POP-GDM will not replace a clinician but will enhance the
+performance of a clinician. We have found that many clinicians keep a
+task list on paper or their smartphone or other personal tech
+device. Existing task list management tools present little advantage
+over paper, as they are decontextualized from the clinical
+datastream. One key aspect of POP-GDM is to provide task management
+that is linked to the clinical datastream, that adjusts task priority
+according to urgency \& importance \& preferences of the task executor
+and colleagues, and that integrates in a natural, seamless manner with
+patients \& clinicians.
+
+\paragraph{Potential Problems \& Alternative Strategies} We expect to
+easily complete development within the first 3 months of our timeline
+of the initial version of POP-GDM, suitable for use with patients in
+the Maternal-Fetal Medicine clinical research setting. If
+unanticipated problems occur, we will scale back the initial POP-GDM
+so as to remove those prescription elements not yet ready for
+deployment to real patients. We expect to build information transfer
+protocols into POP-GDM that will assure interoperable data transfer
+from devices \& from the EPICare EHR system. We expect to continue use
+of the simulation facilities for development of successive versions of
+POP-GDM, as we learn from the experience of using POP-GDM to manage
+real patients.
+

@@ -1,0 +1,309 @@
+\section{Proposed Work}
+
+\addtocounter{subsection}{-1}
+\subsection{Understanding Best Practices}\label{sec:best-practices}
+
+To begin, we will conduct an exhaustive search of the medical
+literature, interviews of domain experts, clinical practice
+guidelines, and many examples of prescriptions/protocols/institutional
+practice guidelines so as to identify very fine-grained descriptions
+of the ``medical algorithms'' used to manage GDM.
+
+\paragraph{Expected outcomes.}
+From this comprehensive survey, we expect to gain a better
+understanding of the variety of approaches that clinicians use to
+manage GDM. This survey process was previously developed by us for the
+purpose of developing patient-oriented prescriptions for other medical
+problems.  We expect this survey to serve as a crucial source of ideas
+and insights as to how one might implement a successful \poppl{}
+program for managing GDM and also to better understand how \poppl{}
+programs will work in general.
+
+\subsection{Event-based Programming}\label{sec:new-start}\label{sec:event}
+
+From past work on POPA, we expect that the large-grain structure of a
+\poppl{} program will describe how to react to various kinds of
+events, in a general sense.  For example, consider another fragment of
+the POPA program in figure~\ref{fig:popa}:
+\begin{center}
+\fbox{\scriptsize\begin{tabular}{ll}
+\textit{Breakthrough pain:} &
+\parbox[t]{5in}{If pain score is 8 cm or greater, INCREASE on-demand dose
+  by (10) \underline{\hbox to .3in{}} micrograms; \underline{reassess} in 1 hour. Repeat 3 times. If pain
+  score is 8 cm or greater on 3 \underline{consecutive} assessments then notify
+  physician. } \\
+\textit{Minimal pain:} &
+\parbox[t]{5in}{If the visual analogue pain score is 2 cm or less on any 3 consecutive assessments,
+REDUCE on-demand dose by (10) \underline{\hbox to .3in{}} micrograms.}
+\end{tabular}}
+\end{center}
+
+This fragment covers two responses to a patient's pain scores; the
+first covers the situation where the patient has increased pain and
+the second when the pain decreases. In each case, the instructions are
+guarded by a condition that spans some unspecified time.
+
+\poppl{} programs consist of a series of interconnected fragments
+based on real-world events, e.g., the patient indicating pain
+severity, or a nurse noticing that a patient is unconsciousness, or
+that a pulse oximeter detects that a patient's capillary blood O$_2$
+saturation has fallen to a low level.
+
+We expect to build on ideas from function reactive programming
+languages~\cite{frp} and guarded commands~\cite{guarded-commands}.
+Adapting these techniques to our setting poses interesting challenges,
+however. In particular, tasks can compete for resources including
+clinician time with other tasks in other prescriptions, and may
+require human judgment, decision-making, and validation. For example,
+POPA (Figure 1) begins by \emph{discontinuing} previously prescribed
+drugs with potential for dangerous interactions with fentanyl, the
+opioid used in POPA. In our vision of how these ``prescription
+collisions'' will be handled in \poppl{} programs, each prescription
+will specify a process to follow so as to resolve such collisions
+instead of having a simple priority based approach with automatic
+resolution.
+
+A prescription is more like a reactive system in the domain of
+embedded systems for controlling cars or airplanes. When an airplane's
+engines fail, the response includes output of software on the
+airplane, software on other airplanes, software in the control tower,
+and humans in each of these settings.  The interactions are complex
+and the stakes are high. Car and airplane software domains currently
+require programmers with high expertise who usually work at a low
+level. Fortunately, the time scale for executing a prescription is
+orders of magnitude higher, and the available computing resources are
+orders of magnitude greater. We will be able to concentrate more on
+designing a simple and expressive language and less about how to map
+the programming model to constrained devices. 
+
+\paragraph{Research questions.}
+What is the language that \poppl{} programmers should use to describe
+events and event–patterns? How can we, given a \poppl{} program,
+determine if all of the possible events are covered and there are no
+redundant patterns? Lack of coverage could mean that important
+information is being dropped (e.g., a patient's requests are being
+ignored) and redundancy could mean that conflicting responses could
+come from a particular stimulus.
+
+\paragraph{Expected outcomes.}
+We expect to develop new languages for describing event streams and
+patterns of event streams, influenced by the way medical practitioners
+and patients and devices respond to each other. In addition, we expect
+to build new analyses that determine if a set of event patterns cover
+all possible sequences of events and if a set of event patterns are
+redundant.
+
+\subsection{Iterative Refinement \& Debugging}\label{sec:iterative}
+
+Iterative refinement~\citep{boehm:spiral} is crucial for any program
+at the complexity of patient-oriented prescriptions and \poppl{})
+programs. For example, in the initial version of the POPA program,
+there was no Ibuprofen option (only Ketorolac and Acetaminophen
+options). After some testing, it was discovered that Ibuprofen was
+also needed and this initiated a refinement to the program. The team
+collaboratively revised POPA over several iterations, then tested the
+new prescription in simulation over several more iterations. Then, a
+pilot study in a limited number of patients was conducted, after which
+the change was released and used with all patients. After deployment,
+statistical sampling and analysis was used to assure that the improved
+version of POPA did not inadvertently introduce new problems in
+routine practice.
+
+Of course, iterative refinement is a standard part of software
+engineering lore. What is different for \poppl{} programs is the
+nature of the iterations---some parts require people to simulate
+them. We expect that computational power can be used to increase the
+efficiency and productivity of the \poppl{} software developer and of
+the clinicians who perform the prescription.  Once prescriptions are
+in a machine-executable form and input events are collected into a
+machine-processable form, then variations on programs can be run on
+the same inputs to check that a new version works as expected. That
+is, the developer of a prescription needs a regression test suite and
+new test cases to check new versions of the prescription.
+
+\paragraph{Feasibility} 
+Physicians and other prescribers do not have formal training in
+computer programming but do have extensive experience writing actual
+prescriptions. This prescription-writing experience is effectively a
+parallel discipline that uses many constructs common to computer
+programming but without the benefit of the extensive conceptual
+framework provided by computer science.  Thus, our task is not to
+create this language de novo but instead to create an intuitive
+language for these prescribers that will be formally defined and more
+robust, reliable, and powerful than free text.  To improve the
+feasibility of iterative refinement, we plan to build a replay
+mechanism into \poppl{} so that the stream of events from one run of a
+program (including all of the actions taken by the patients and the
+care-givers) can be used to simulate how a new \poppl{} program
+runs. In the previous paper versions of POPs, manual review of medical
+records and direct observation of the clinical process by humans was
+used to gather information for purposes of debugging. Much of this
+data–gathering can be automated for e-prescriptions, as the POP-SE
+environment will capture a rich data-stream of clinical events.
+
+\paragraph{Research questions.} How can we determine if the replay of
+a \poppl{} program has failed because there is a bug in the program or
+because some intended change to the program has invalidated the trace?
+
+\paragraph{Expected outcomes.} We expect to define a notion of
+well-formed trace and a compatibility notion between traces and
+programs. Specifically, a well-formed trace will be compatible with a
+\poppl{} program if and only if an error that results from running the
+trace is due to a bug in the program.
+
+\subsection{Staged Programming}\label{sec:staged-programming}
+
+One of the most exciting directions for integrating computing into
+medicine is in moving off of the desktop. Any given \poppl{} program
+executes on a variety of machines and contains instructions for both
+machines and humans. Consider, for example, this fragment of a
+\poppl{} program that deals with one part of the daily glucose
+monitoring of a GDM patient:
+
+\begin{center}
+\fbox{\scriptsize\begin{tabular}{l@{~~$\bullet$~}l}
+\textit{Initial diagnosis:} &
+\parbox[t]{5in}{Advance practice nurse tells the patient to measure
+  the blood glucose level every morning between 5 and 8am.} \\
+\textit{Daily monitoring:} &
+\parbox[t]{5in}{Alert patient if no glucose level value received by 8:30} \\
+&
+\parbox[t]{5in}{Alert nurse if no glucose level value received on
+  three subsequent days.}\\
+&
+\parbox[t]{5in}{If glucose value between 120 \& 140, patient to adjust
+dose}\\
+&
+\parbox[t]{5in}{If value higher, consult advance practice nurse}\\
+\end{tabular}}
+\end{center}
+
+This code fragment has machines talking to machines (the glucose meter
+communicating with the cell phone, pager, or telephone of the patient
+as well as communicating with the hospital to relay the data values),
+machines talking to people (e.g., alerting the patient when no value
+has been received), and people talking to people (the nurse informing
+the patient of those parts of the prescription dependent on the
+patient). This fragment is only a small fragment of the program.
+
+In the same way that a playwright works on a single play and
+distributes the ``work'' of the play to different actors, the
+developer of a prescription wants to develop a single program rather
+than separate programs for all of the different actors in its
+execution. Precedents for splitting a single program into multiple
+roles exist in the computing domain, including the problem of
+splitting a web-based application into server-side and client-side
+parts, which we have investigated previously~\citep{mfgkf:asej2004}.
+
+In general, the problem is difficult, but usually because the problem
+is splitting a traditional linear program into a concurrent system.
+We expect \poppl{} programs to use an event-driven style that is
+inherently concurrent and that more easily translates into real
+devices and human actors. The problem is not as easy as extracting the
+subset of a play that contains a single actor's lines, because events
+will trigger cooperative responses from many different actors, but the
+problem is still far easier than extracting concurrency from a
+traditional single-threaded computation.
+
+Additionally, \poppl{} programs can provide functionality that would
+be highly desirable to clinicians. For example, clinicians must
+simultaneously care for large numbers of different
+patients. Interruptions are frequent. Setting priorities is
+challenging. Mapping the urgency and importance of each task tasks
+onto a Cartesian grid would give us the ability to provide a more
+informative visualization of the available tasks, and thus permit
+clinicians and patients to make more informed decisions. We expect
+that providing this functionality would improve the effectiveness of
+clinicians and would also diminish the stress inherent to a demanding
+clinical environment.
+
+\paragraph{Research questions.} How can we write \poppl{} programs so
+that the roles of the various players (machines and people) are
+separable? Can we automatically generate internally consistent views
+of a \poppl{} program that are specialized for particular people and
+understandable by those people? Similarly, can we automatically
+generate internally consistent programs that run on the myriad of
+devices given just a single \poppl{} program?
+
+\paragraph{Expected outcomes.} 
+We expect to build on ideas of staged
+programming~\citep{multistageprogramming,
+  efficient-program-specialization, runtime-generation-c,
+  tickc:toplas} and aspect-oriented programming~\citep{aop} to come up
+with a notion of staging that captures these very different parts of
+\poppl{} program.
+
+\subsection{Virtual Machines and Medical Devices}\label{sec:new-end}\label{sec:vm}
+
+Following up on the problem of splitting a \poppl{} program into 
+different pieces for different devices, we will need a platform
+for actually running the pieces on the different devices and having
+the devices communicate with each other successfully. We will design a
+relatively high-level virtual machine language that is easily
+retargetable to multiple different low-level, programmable devices.
+
+Intermediate languages like the JVM~\citep{jvm} and the CLR~\citep{clr}
+already provide guidance and even tool support for running on many
+different programs, but few medical devices currently support running
+such general purpose programs. We plan to develop a simple, highly–intuitive,
+restricted language that is better suited to environments where
+information must be carefully protected and to implement this language on various medical devices.
+
+Our approach includes four steps 1) A threat and risk assessment
+documenting the system components, the stakeholders, the security
+requirements, and the threats against those requirements, 2)
+Operational security guidelines describing countermeasures, technical
+or otherwise, that mitigate security threats, 3) A policy document
+describing goals, responsibilities, guidelines, and procedures, and
+finally 4) A security architecture that accurately reflects the
+security priorities and priorities for the prototype framework.  This
+architecture will act to place \poppl{} in a secure sandbox isolating
+the language from interactions with hardware devices and EMRs.
+
+\paragraph{Research questions.} How can we restrict the computational
+power of programs in our intermediate language to ensure that
+information only goes to trusted recipients? 
+
+\paragraph{Expected outcomes.} A new low-level language for medical
+devices that guarantees security properties.
+
+\subsection{Workflow Management Systems}
+
+Workflow management systems are computer systems that monitor and
+manage tasks performed by humans (and computers). These systems accept
+the specification of some set of tasks and their dependencies and
+outcomes and then accept input from humans to ensure that the proper
+set of tasks occur in the proper order.
+
+Most of these systems are too brittle for our needs, as they are not
+generally programming languages, but instead GUI-based applications
+that only allow partial specification of the tasks and their
+dependencies, as such specifications quickly become too complex for
+that kind of setting.
+
+One notable exception is iTasks~\citep{itasks}. It is a
+domain-specific language embedded in the programming language Clean
+for the specification of tasks and their interactions. iTasks allows
+programmers to specify workflows in a high-level, declarative manner
+whereby tasks are composed out of atomic tasks and combinators that
+express sequential composition or parallel composition (for
+example). It also has excellent support for automatically building
+GUIs for data entry based on type specifications. We expect to build
+on the ideas in iTasks and specialize them to the medical setting.
+
+\paragraph{Research questions.} One challenge in the medical
+setting is that a specific task can change over time. For example, a
+naive understanding of the directive ``take medication every 6
+hours'' would lead to an inflexible timer that expects a patient to
+either check a box or not at the pre-determined times. However, many different tasks compete for completion and many events potentially alter the precise timing of prescribed actions; further,
+there is a notion of time built into that specification; taking the drug
+dose 20 minutes early or late is probably fine (depending on the
+medication and dosage guidelines), but if two hours have elapsed
+since the correct time, then waiting for the next interval is
+certainly the wrong behavior. Instead, the proper course might be to adjust the future drug dose schedule to catch up. The details of what these dose and schedule adjustments ought to be are often quite clear to the prescriber or pharmacist but are almost impossible to express clearly within the constraints of existing CPOE systems. So we need to understand how to include a notion of time into POP-PL prescribing models that allow a task to gracefully change over time.
+
+We expect the core model of a prescription to be event-driven and we expect to apply the considerable expressive power of Racket to build prescription language constructs that intuitively and robustly express how medical tasks can be accomplished within an event-driven model.
+
+\paragraph{Expected outcomes.} A notion of interoperability for
+combining iTasks-like specifications with event-driven programming,
+and a way to introduce a notion of time into iTasks.
