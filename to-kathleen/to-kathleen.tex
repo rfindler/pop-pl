@@ -140,55 +140,60 @@ replicate this success on a wide-scale.
 To adapt software engineering techniques to implement and maintain
 highly reliable \emph{electronic} prescriptions, Belknap, Findler, and
 Flatt have been collaborating on the designing a Patient-Oriented
-Prescription Programming Language (\poppl{}). We wish to improve the
-state of the art by tackling the following specific projects.
+Prescription Programming Language (\poppl{}). 
+
+We think we can be successful by tackling the following projects, but
+we believe our approach can help anywhere that medical error rears its
+ugly head and we welcome advice and guidance.
 
 \newcommand{\aim}[1]{\vspace{.1in}\noindent\textbf{Aim #1}\\}
 
-\aim{1: Identify, Define, and Document Current Algorithms for Management of DM2 and Other Chronic Medical Conditions Relevant to the Medical Care of Active Duty Personnel and Military Retirees}
- Information sources will include standard medical operating procedure
- manuals and training materials, direct observation of clinical
- encounters, interviews of personnel, interviews of patients and
- prescribers, discussion with senior leaders in military medicine and
- at TriCare, and analysis of clinical data to precisely define the
- current methods for managing chronic illness and to identify
- strengths, flaws, and opportunities for automating and improving
- these methods. The chief work product of this aim will be a detailed,
- algorithmic description of how DoD patients with chronic illness are
- currently managed. This detailed description of the current process
- will then inform design of data structures and data flows for 
- Aim 2 and for building and evaluating POP-DM2 (Aim 3).
+\aim{1: Identify, Define, and Annotate Current Algorithms for
+  Management of DM2 or Other Chronic Medical Conditions Relevant
+  to the Medical Care of Active Duty Personnel and Military Retirees}
+ Information sources will include medical standard procedure manuals
+ and training materials, direct observation of clinical encounters,
+ interviews of patients and prescribers, discussion with senior
+ leaders in military medicine and at TriCare, and analysis of clinical
+ data to precisely define the current methods for managing chronic
+ illness and to identify strengths, flaws, and opportunities for
+ automating and improving these methods. The chief work product of
+ this aim will be a detailed, algorithmic description of how DoD
+ patients with chronic illness are currently managed. This detailed
+ description of the current process will then inform design of data
+ structures and data flows for other POPs (Aim 2) and for building and
+ evaluating POP-DM2 (Aim 3).
 
-\aim{2: Design, Build, and Test Data Structures and Data Flows for POP-DM2 and other POPs}
+\aim{2: Design, Build, and Test Data Structures and Data Flows for POP-DM2 or other POPs}
  POP-DM2 will rely on a refactoring of the information flow and the
  control structure typical in clinical practice. One barrier to
  improving DM2 care is lack of integration of patient-generated data,
  including medication adherence, glucometer readings, diet, and
- physical activity. This orphaned data is poorly integrated into the
+ physical activity. This orphan data is poorly integrated into the
  medical record due to data silos, incompatible data formats, data
  transfer restrictions, or inadequate data capture. We will design and
  build POP-DM2 data structures for this patient-generated data. We
  will also evaluate data flows between POP-DM2 and personal
  technology, including glucometers, activity monitors, and smartphone
- apps.
+ apps. 
 
 \aim{3: Develop and Evaluate a Patient-oriented Prescription for
-  Diabetes Mellitus 2 (POP-DM2)} We will design, build, and debug
-POP-DM2--an e-prescription that will effectively integrate physicians,
-other clinicians and information technology to manage a patient's drug
-therapy, diet, exercise, health behaviors, and other aspects of
-DM2. POP-DM2 will include components for efficiently capturing data
-from glucometers, accelerometers, web-based diet diaries, and smart
-phones so as to monitor (respectively) blood glucose, physical
-activity, diet, and adherence to medication. The POP control structure
-will provide consistent monitoring and relentless, gentle nudges to
-help the patient adhere with the agreed plan. We will first conduct
-simulation trials with the goal of an eventual statistical process
-control clinical trial in actual patients. Evaluation will include
-adherence to drug, exercise, and diet prescriptions, adequacy of blood
-sugar control, and adverse drug events. We hypothesize that POP-GDM
-will outperform usual care in timeliness, appropriateness, and
-reliability.
+ Diabetes Mellitus 2 (POP-DM2)}
+ We will design, build, and debug POP-DM2--an e-prescription that will
+ effectively integrate physicians, other clinicians and information
+ technology to manage a patient's drug therapy, diet, exercise, health
+ behaviors, and other aspects of DM2. POP-DM2 will include components
+ for efficiently capturing data from glucometers, accelerometers,
+ web-based diet diaries, and smart phones so as to monitor
+ (respectively) blood glucose, physical activity, diet, and adherence
+ to medication. The POP control structure will provide consistent
+ monitoring and relentless, gentle nudges to help the patient adhere
+ with the agreed plan. We will first conduct simulation trials and
+ then a statistical process control clinical trial in actual
+ patients. Evaluation will include adherence to drug, exercise, and
+ diet prescriptions, adequacy of blood sugar control, and adverse drug
+ events. We hypothesize that POP-GDM will outperform usual care in
+ timeliness, appropriateness, and reliability.
 
 \newpage
 
