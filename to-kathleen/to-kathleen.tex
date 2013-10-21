@@ -1,0 +1,197 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage[round,sort]{natbib}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{boxedminipage}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage[compact]{titlesec}
+\begin{document}
+
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
+\newcommand{\note}[1]{\marginpar{\small{}\it{}#1}}
+
+\newcommand{\ourtitle}[1]{\centerline{\begin{tabular}{c}\begin{tabular}{c}\bf{}SHF:Medium:Collaborative Research:\\
+  \bf{}Domain-Specific Language Design for Patient-Oriented Prescriptions{}#1\end{tabular}\end{tabular}}}
+
+
+\newcommand{\poppl}{POP-PL}
+\newcommand{\beginwfig}[1]{\begin{wrapfigure}{r}{#1}}
+\def\endwfig{\end{wrapfigure}}
+
+\newcommand{\hashLang}{{\tt \#lang}}
+\newcommand{\racket}[1]{{\tt #1}}
+\newcommand{\OnScreen}[1]{{\sf #1}}
+\newcommand{\atexp}{$@$-expression}
+
+\newcommand{\ResearchQuestions}[1]{{\bf Research questions:} #1}
+\newcommand{\ExpectedOutcomes}[1]{{\bf Expected outcomes:} #1}
+
+\pagestyle{empty}
+
+
+\noindent
+\begin{center}
+\begin{tabular}{c}
+\textbf{\large Domain-Specific Language Design for Patient-Oriented Prescriptions} \\
+Steve Belknap, MD; Robby Findler, CS PhD; Matthew Flatt, CS PhD
+\end{tabular}
+\end{center}
+
+~
+
+Medical errors in hospitals cause 2 to 4 million patient injuries and
+440,000 deaths in US hospitals annually; this amounts to one-sixth of
+annual US deaths~\citep{Kohn1999,James2013}.
+%
+Large studies and systematic reviews have found that healthcare
+information technology fails to reliably reduce patient injuries or
+deaths \citep{Garg2005,Linder2007,Zhou2009,Romano2011}.
+%
+Despite extensive effort and the expenditure of billions of dollars,
+computerization has failed to solve this problem~\citep{Landrigan2010}.
+%
+The PIs attribute this failure to a pervasive misunderstanding of the nature of
+computation in healthcare.
+%
+While there has been a computer technology transfer in healthcare, we
+await an intellectual transfer, in which software design,
+maintainence, and debugging unlock the full potential of computer
+science to improve healthcare.
+
+Others have noticed this problem and have responded by trying to
+introduce computers to the process of prescribing medicine to
+patients, using systems collectively dubbed Computerized Prescriber
+Order Entry (CPOE).
+%
+When carefully implemented, CPOE has been shown to reduce the rate of
+medication prescription errors.
+%
+Clinically-relevant benefits, however, such
+as improving clinical outcomes or preventing patient deaths or
+injuries, have not yet been clearly demonstrated~\citep{vanRosse2009}.
+%
+Even in terms of error prevention, CPOE's introduction to the hospital
+has been a mixed blessing.
+%
+Certain medical errors, such as those related to poor handwriting, are
+reduced, but other familiar errors continue to occur, and some new types
+of error are introduced by CPOE.
+%
+In one report, CPOE actually \emph{caused} 22 types of medication
+error; problems included fragmented display of drugs, inventory
+display mistaken for dose guidelines, duplicate and incompatible
+orders, and inflexible formats~\citep{Koppel2005}.
+
+We have a different approach, based on the claim that
+\begin{center}
+\textbf{a prescription is a program}
+\end{center}
+That is, a prescription requires ``a series of definite steps that
+carry out a procedure'' or, in other words, an \emph{algorithm}.
+%
+The research areas of programming languages and software engineering
+have amassed substantial knowledge about how to accurately implement
+an algorithm as a program, and for dealing with the issues of clearly
+expressing and maintaining those programs.
+%
+This knowledge is directly
+relevant to healthcare prescriptions.
+%
+In short, computers are not the missing piece to fix the problems of
+medicine delivery, the \emph{intellectual contribution of computer
+  science itself} is the missing piece.
+
+We have applied this insight to significantly reduce the risk of severe
+injury from medical use of opiods among hospitalized adults at
+St.\ Francis Medical Center in Peoria, IL, a 731-bed tertiary care
+academic medical center~\citep{Belknap2008}. During a 1 year base-line
+period, there were three to seven severe or fatal opioid-associated
+adverse drug events (ADEs) each month. After widespread adoption of
+POPA, his prescription, the rate of severe/fatal opioid ADEs dropped
+to zero/month. 
+
+To validate the success of \poppl{} program, we also
+conducted a statistical process control clinical trial and nested
+subcohort analysis in a population of 153,260 hospitalized adults. In
+the orthopedics subcohort, POPA increased recording of pain scores
+(94\% vs.\ 72\%, P $<$ 0.00001) and use of adjuvant analgesics (95\%
+vs.\ 40\%, P $<$ 0.00001) and resulted in fewer opioid-associated
+severe adverse drug events than routine patient-controlled analgesia
+(PCA) (0\% vs.\ 2.7\%, number needed to treat (NNT) = 35, P $<$
+0.015). Hospital-wide, POPA use increased to 62\% of opioid
+prescriptions (diffusion half-life = 98 days), while opioid-associated
+severe/fatal adverse drug events fell from an initial peak of seven
+per month to zero per month during the final 6 months (P $<$ 0.0016)
+of the study.
+
+The success of the POPA was due in part to the rigor that algorithmic
+thinking brought to the process of building the prescription and in
+part to extensive debugging. Our belief is that the methods and
+techology of software engineering and programming languages can
+replicate this success on a wide-scale.
+
+To adapt software engineering techniques to implement and maintain
+highly reliable \emph{electronic} prescriptions, the Belknap, Findler,
+and Flatt have been collaborating on the designing a Patient-Oriented
+Prescription Programming Language (\poppl{}). 
+
+\newcommand{\aim}[1]{\vspace{.1in}\noindent\textbf{Aim #1}\\}
+
+\aim{1: Identify, Define, and Notate Current Algorithms for Management of DM2 and Other Chronic Medical Conditions Relevant to the Medical Care of Active Duty Personnel and Military Retirees}
+ Information sources will include standard medical operating procedure
+ manuals and training materials, direct observation of clinical
+ encounters, interviews of personnel, interviews of patients and
+ prescribers, discussion with senior leaders in military medicine and
+ at TriCare, and analysis of clinical data to precisely define the
+ current methods for managing chronic illness and to identify
+ strengths, flaws, and opportunities for automating and improving
+ these methods. The chief work product of this aim will be a detailed,
+ algorithmic description of how DoD patients with chronic illness are
+ currently managed. This detailed description of the current process
+ will then inform design of data structures and data flows for 
+ Aim 2 and for building and evaluating POP-DM2 (Aim 3).
+
+\aim{2: Design, Build, and Test Data Structures and Data Flows for POP-DM2 and other POPs}
+ POP-DM2 will rely on a refactoring of the information flow and the
+ control structure typical in clinical practice. One barrier to
+ improving DM2 care is lack of integration of patient-generated data,
+ including medication adherence, glucometer readings, diet, and
+ physical activity. This orphaned data is poorly integrated into the
+ medical record due to data silos, incompatible data formats, data
+ transfer restrictions, or inadequate data capture. We will design and
+ build POP-DM2 data structures for this patient-generated data. We
+ will also evaluate data flows between POP-DM2 and personal
+ technology, including glucometers, activity monitors, and smartphone
+ apps.
+
+\aim{3: Develop and Evaluate a Patient-oriented Prescription for
+  Diabetes Mellitus 2 (POP-DM2)} We will design, build, and debug
+POP-DM2--an e-prescription that will effectively integrate physicians,
+other clinicians and information technology to manage a patient's drug
+therapy, diet, exercise, health behaviors, and other aspects of
+DM2. POP-DM2 will include components for efficiently capturing data
+from glucometers, accelerometers, web-based diet diaries, and smart
+phones so as to monitor (respectively) blood glucose, physical
+activity, diet, and adherence to medication. The POP control structure
+will provide consistent monitoring and relentless, gentle nudges to
+help the patient adhere with the agreed plan. We will first conduct
+simulation trials with the goal of an eventual statistical process
+control clinical trial in actual patients. Evaluation will include
+adherence to drug, exercise, and diet prescriptions, adequacy of blood
+sugar control, and adverse drug events. We hypothesize that POP-GDM
+will outperform usual care in timeliness, appropriateness, and
+reliability.
+
+\newpage
+
+\bibliographystyle{plainnat}
+\bibliography{bib}
+
+\end{document}
